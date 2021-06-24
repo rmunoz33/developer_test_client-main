@@ -14,7 +14,10 @@ function People() {
 
   return (
     <div>
-      {people.map(person => <Person person={person} />)}
+      <h1>Star Wars Characters</h1>
+      <div className="people_info">
+        {people.map(person => <Person person={person} />)}
+      </div>
     </div>
   )
 }
