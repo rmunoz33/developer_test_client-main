@@ -2,7 +2,9 @@ import People from '../People';
 
 function App() {
   return (
-    <People />
+    <div style={{ backgroundColor: '#1c1e22', }} >
+      <People />
+    </div >
   );
 }
 

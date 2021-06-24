@@ -35,6 +35,24 @@ ul {
 
 .people_info {
   margin: auto;
-  width: 100%;
-  padding: 50px;
+  padding-left: 20px;
+}
+
+.search-tool {
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.prompt-me {
+  text-align: center;
+  color: #feda4a;
+  font-family: 'Pathway Gothic One', sans-serif;
+}
+
+#search-input {
+  max-width: 300px;
+}
+
+#search-button {
+  margin-left: 20px;
 }
