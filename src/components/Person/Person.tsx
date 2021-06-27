@@ -12,14 +12,15 @@ function Person({ person }: PersonProps) {
   const eye_color = 'Eyes: ' + person.eye_color;
   const birth_year = 'DOB: ' + person.birth_year;
   const gender = 'Gender: ' + person.gender;
-  // const films = 'Films: ' + person.films;
+  const species = 'Species: ' + person.species;
+  const films = 'Films: ' + person.films;
 
   return (
     <div>
       <h3>{person.name}</h3>
       <ul>
-        {[height, mass, hair_color, eye_color, birth_year, gender].map(item =>
-          <li key="{item}">{item}</li>)
+        {[height, mass, hair_color, eye_color, birth_year, gender, species, films].map(item =>
+          <li key={item}>{item}</li>)
         }
       </ul>
     </div>

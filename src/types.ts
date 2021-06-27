@@ -1,4 +1,3 @@
-// TODO: define interface
 export interface PersonType {
   name: string,
   height: string,
@@ -7,6 +6,11 @@ export interface PersonType {
   skin_color: string,
   eye_color: string,
   birth_year: string,
-  gender: string
-  films: string; // TODO: make this display film names, not URLs
+  gender: string,
+  species: string, // TODO: make this display species name, not URL
+  films: Films[];
+}
+
+export interface Films {
+  [index: number]: string; // TODO: make this display film names, not URLs
 }

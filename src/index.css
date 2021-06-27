@@ -31,11 +31,15 @@ h3 {
 ul {
   color: #feda4a;
   font-family: 'Pathway Gothic One', sans-serif;
+
 }
 
 .people_info {
   margin: auto;
   padding-left: 20px;
+  border-style: double;
+  border-color: #feda4a;
+  overflow-wrap: break-word;
 }
 
 .search-tool {
@@ -55,4 +59,18 @@ ul {
 
 #search-button {
   margin-left: 20px;
+}
+
+.search-results {
+  margin: auto;
+  padding-left: 20px;
+  border-style: double;
+  border-color: #feda4a;
+  text-overflow: ellipsis;
+  word-wrap: normal;
+}
+
+.searched-people {
+  color: #feda4a;
+  background-color: #1c1e22;  
 }
