@@ -1,4 +1,6 @@
 import React from 'react'
+import { isTemplateExpression } from 'typescript'
+
 import '../../../node_modules/bootstrap/dist/css/bootstrap.css'
 import '../../../node_modules/bootstrap-icons/font/bootstrap-icons.css'
 import { Row, Col, Button, ListGroup } from '../../../node_modules/react-bootstrap'
@@ -6,7 +8,6 @@ import { fetchJson } from '../../api'
 import { PersonType } from '../../types'
 import Person from '../Person'
 import { useSwapi } from '../../api'
-import { isTemplateExpression } from 'typescript'
 
 function People() {
 
@@ -37,7 +38,7 @@ function People() {
   }, [fetch, searchText]);
 
   // searched people
-    // TODO: display species and film names rather than URLs
+  // TODO: display species and film names rather than URLs
   const EntityListItem = ({ item }: any) => {
     return (
       <ListGroup style={{ background: "#1c1e22" }} key={item.name} className="searched-people list-group-item">
@@ -84,7 +85,10 @@ function People() {
 
       <Row>
         <Col xs={5} className="people_info m-5">
-          {people.map(person => <Person person={person} />)}
+          {people.map((person, index) => {
+            person.id = index + 1
+            return <Person person={person} />
+          })}
         </Col>
         <Col xs={5} className="search-results m-5" style={{ color: "white" }}>
           <ul>

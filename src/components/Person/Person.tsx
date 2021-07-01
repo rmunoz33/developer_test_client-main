@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { PersonType } from '../../types';
 
 interface PersonProps {
@@ -17,7 +18,9 @@ function Person({ person }: PersonProps) {
 
   return (
     <div>
-      <h3>{person.name}</h3>
+      <Link to={`/people/${person.id}`}>
+        <h3>{person.name}</h3>
+      </Link>
       <ul>
         {[height, mass, hair_color, eye_color, birth_year, gender, species, films].map(item =>
           <li key={item}>{item}</li>)
