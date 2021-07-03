@@ -7,27 +7,20 @@ import { Person as PersonType } from "../types/Person";
 export default function PersonPage() {
   const [person, setPerson] = React.useState<PersonType | null>(null);
   let { id } = useParams<{ id: string }>();
-  console.log({ id });
 
   React.useEffect(() => {
-    getPerson(parseInt(id)).then((response) => {
+    const fetch = async () => {
+      const response = await getPerson(parseInt(id));
       if (response) {
         setPerson(response);
       }
-    });
-  }, [id]);
+    };
+    fetch();
+  }, []);
 
-  console.log("PersonPage", person);
   if (!person) {
     return <h1>Loading...</h1>;
   }
 
-  return (
-    <div>
-      {(person.fullFilms || []).map((f) => (
-        <h1>f.title</h1>
-      ))}
-      <Person person={person} />
-    </div>
-  );
+  return <Person person={person} />;
 }

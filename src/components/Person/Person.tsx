@@ -14,7 +14,6 @@ function Person({ person }: PersonProps) {
   const gender = "Gender: " + person.gender;
   const { fullFilms = [], fullSpecies = [] } = person;
 
-  console.log(person, fullFilms);
   return (
     <div>
       <Link to={`/people/${person.id}`}>
