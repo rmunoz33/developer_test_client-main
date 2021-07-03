@@ -1,8 +1,9 @@
 import React from 'react'; // Rocky's
 
-export async function fetchJson<Response = any>(url: string, init?: RequestInit): Promise<Response> {
+export async function fetchJson<Response = any>(url: string, init?: RequestInit): Promise<Response | false> {
+  const finalUrl = url.includes('http') ? url : `https://swapi.dev/api/${url}`
   const response = await fetch(
-    `https://swapi.dev/api/${url}`,
+    finalUrl,
     {
       ...init ?? {},
       headers: {
@@ -11,8 +12,10 @@ export async function fetchJson<Response = any>(url: string, init?: RequestInit)
       }
     })
 
-
-  return response.json()
+  if (response.ok) {
+    return response.json()
+  }
+  return false
 }
 
 // Rocky's code for search tool

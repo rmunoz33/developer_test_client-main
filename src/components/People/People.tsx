@@ -1,13 +1,12 @@
 import React from 'react'
-import { isTemplateExpression } from 'typescript'
 
 import '../../../node_modules/bootstrap/dist/css/bootstrap.css'
 import '../../../node_modules/bootstrap-icons/font/bootstrap-icons.css'
 import { Row, Col, Button, ListGroup } from '../../../node_modules/react-bootstrap'
 import { fetchJson } from '../../api'
-import { PersonType } from '../../types'
 import Person from '../Person'
 import { useSwapi } from '../../api'
+import { Person as PersonType } from "../../types/Person";
 
 function People() {
 
@@ -16,7 +15,12 @@ function People() {
 
   React.useEffect(() => {
     fetchJson<{ results: PersonType[] }>('people')
-      .then(peopleResponse => setPeople(peopleResponse.results))
+      .then(peopleResponse => {
+        if (peopleResponse) {
+
+          setPeople(peopleResponse.results)
+        }
+      })
   }, []);
 
   // Rocky's code for search tool
@@ -87,7 +91,7 @@ function People() {
         <Col xs={5} className="people_info m-5">
           {people.map((person, index) => {
             person.id = index + 1
-            return <Person person={person} />
+            return <Person key={`person-${index}`} person={person} />
           })}
         </Col>
         <Col xs={5} className="search-results m-5" style={{ color: "white" }}>
