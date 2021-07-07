@@ -25,14 +25,22 @@ function Person({ person }: PersonProps) {
             <li key={item}>{item}</li>
           )
         )}
-        {fullFilms.map((film, index) => {
-          console.log("rendering film", film);
-          return <li key={`film-${index}`}>FILM: {film.title}</li>;
-        })}
-        {fullSpecies.map((species, index) => (
-          <li key={`species-${index}`}>SPECIES: {species.name}</li>
-        ))}
       </ul>
+      {fullFilms.length && <ul className="search-results">Films</ul>}
+      {fullFilms.map((film, index) => {
+        console.log("rendering film", film);
+        return (
+          <li className="unbulleted-list" key={`film-${index}`}>
+            {film.title} ({parseInt(film.release_date)})
+          </li>
+        );
+      })}
+      {fullSpecies.length && <ul className="search-results">Species</ul>}
+      {fullSpecies.map((species, index) => (
+        <li className="unbulleted-list" key={`species-${index}`}>
+          {species.name}
+        </li>
+      ))}
     </div>
   );
 }
