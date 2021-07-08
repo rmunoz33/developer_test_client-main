@@ -28,7 +28,6 @@ function Person({ person }: PersonProps) {
       </ul>
       {fullFilms.length && <ul className="search-results">Films</ul>}
       {fullFilms.map((film, index) => {
-        console.log("rendering film", film);
         return (
           <li className="unbulleted-list" key={`film-${index}`}>
             {film.title} ({parseInt(film.release_date)})

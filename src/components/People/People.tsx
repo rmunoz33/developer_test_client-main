@@ -25,8 +25,6 @@ function People() {
     });
   }, []);
 
-  // Rocky's code for search tool
-
   const [result, fetch] = useSwapi();
 
   // Holds the currest state of the search field
@@ -47,7 +45,6 @@ function People() {
   }, [fetch, searchText]);
 
   // searched people
-  // TODO: display species and film names rather than URLs
   const EntityListItem = ({ item }: any) => {
     return (
       <ListGroup

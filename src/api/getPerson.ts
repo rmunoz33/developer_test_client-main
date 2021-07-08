@@ -5,7 +5,6 @@ import { Species } from "../types/Species"
 
 export const getPerson = async (id: number): Promise<Person | false> => {
     const response = await fetchJson<Person>(`people/${id}`)
-    // console.log(response, fetchJson.mock)
     if (!response) {
         return false
     }
